@@ -49,10 +49,15 @@
             // 
             // dgw
             // 
+            dgw.AllowUserToAddRows = false;
+            dgw.AllowUserToDeleteRows = false;
+            dgw.AllowUserToOrderColumns = true;
             dgw.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgw.Columns.AddRange(new DataGridViewColumn[] { StudentNo, StudentName, StudentSurname, Class });
             dgw.Location = new Point(24, 10);
+            dgw.MultiSelect = false;
             dgw.Name = "dgw";
+            dgw.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             dgw.Size = new Size(345, 295);
             dgw.TabIndex = 0;
             // 
@@ -167,6 +172,7 @@
             addBtn.TabIndex = 10;
             addBtn.Text = "Add";
             addBtn.UseVisualStyleBackColor = true;
+            addBtn.Click += addBtn_Click;
             // 
             // dltBtn
             // 

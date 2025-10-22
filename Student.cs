@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OkulSis
 {
-    internal class Student
+    public class Student
     {
         [Key]
         public int StudentNumber { get; set; }

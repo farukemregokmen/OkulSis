@@ -69,3 +69,4 @@ C:\Users\1\source\repos\OkulSis\obj\Debug\net8.0-windows\refint\OkulSis.dll
 C:\Users\1\source\repos\OkulSis\obj\Debug\net8.0-windows\OkulSis.pdb
 C:\Users\1\source\repos\OkulSis\obj\Debug\net8.0-windows\OkulSis.genruntimeconfig.cache
 C:\Users\1\source\repos\OkulSis\obj\Debug\net8.0-windows\ref\OkulSis.dll
+C:\Users\1\source\repos\OkulSis\obj\Debug\net8.0-windows\OkulSis.sourcelink.json

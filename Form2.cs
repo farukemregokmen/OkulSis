@@ -17,13 +17,28 @@ namespace OkulSis
         {
             InitializeComponent();
         }
-
+        StudentDAL _studentDal = new StudentDAL();
         private void Form2_Load(object sender, EventArgs e)
         {
-            using(OkulSisContext context = new OkulSisContext())
-            {
-                dgw.DataSource = context.Students.ToList();
-            }
+            dgw.RowHeadersVisible = false;
+            dgw.DataSource = _studentDal.GetAll();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            var _studentNumber = stuNumberTb.Text;
+            var _studentName = stuNameTb.Text;
+            var _studentSurname = stuSurnameTb.Text;
+            var _studentClass = stuClassTb.Text;
+            Student newStudent = new Student {
+                StudentNumber = int.Parse(_studentNumber),
+                StudentName = _studentName,
+                StudentSurname = _studentSurname,
+                StudentClass = _studentClass
+            };
+            
+            _studentDal.Add(newStudent);
+            dgw.DataSource = _studentDal.GetAll();
         }
     }
 }
