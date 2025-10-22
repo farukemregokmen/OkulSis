@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,15 +31,40 @@ namespace OkulSis
             var _studentName = stuNameTb.Text;
             var _studentSurname = stuSurnameTb.Text;
             var _studentClass = stuClassTb.Text;
-            Student newStudent = new Student {
+            Student newStudent = new Student
+            {
                 StudentNumber = int.Parse(_studentNumber),
                 StudentName = _studentName,
                 StudentSurname = _studentSurname,
                 StudentClass = _studentClass
             };
-            
+
             _studentDal.Add(newStudent);
             dgw.DataSource = _studentDal.GetAll();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            var _studentNumber = stuNumberTb.Text;
+            var _studentName = stuNameTb.Text;
+            if (_studentNumber.IsNullOrEmpty() && _studentName.IsNullOrEmpty())
+            {
+                dgw.DataSource = _studentDal.GetAll();
+            }
+            else if(_studentNumber.IsNullOrEmpty())
+            {
+                dgw.DataSource = _studentDal.GetStudent(_studentName);
+            }
+            else if(_studentName.IsNullOrEmpty())
+            {
+                dgw.DataSource = _studentDal.GetStudent(int.Parse(_studentNumber));
+            }
+            else
+            {
+                dgw.DataSource = _studentDal.GetStudent(_studentName, int.Parse(_studentNumber));
+
+            }
+
         }
     }
 }
